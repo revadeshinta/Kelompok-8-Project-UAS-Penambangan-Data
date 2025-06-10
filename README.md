@@ -44,12 +44,10 @@ Setelah melakukan proses pelatihan model LSTM terhadap data historis harga saham
 Dari nilai-nilai tersebut, dapat dilihat bahwa model LSTM mampu memberikan error yang relatif kecil dalam memprediksi harga saham yang telah diskalakan. Nilai RMSE yang mendekati nol menunjukkan bahwa perbedaan antara nilai aktual dan prediksi cukup kecil.
 2. Visualisasi Hasil Prediksi
 Grafik hasil prediksi dan nilai aktual dari harga saham BBCA dan ANTM menunjukkan bahwa model dapat mengikuti tren umum dari harga saham. Pola naik dan turun yang terjadi secara historis dapat ditangkap dengan cukup baik oleh model, terutama pada saham ANTM. Namun, terdapat deviasi kecil pada beberapa titik ekstrem yang umum terjadi dalam data pasar finansial.
-3. Perbandingan Prediksi Saham BBCA dan ANTM
-Meskipun model yang digunakan sama, performa prediksi pada saham ANTM sedikit lebih baik daripada BBCA, terlihat dari nilai MAE dan RMSE yang lebih rendah. Hal ini bisa disebabkan oleh:
+3. Interpretasi Hasil
+Nilai MAE dan RMSE yang diperoleh pada kedua saham menunjukkan bahwa model LSTM mampu melakukan prediksi dengan kesalahan yang relatif kecil. Saham BBCA memiliki MSE yang lebih rendah, tetapi RMSE-nya sedikit lebih kecil dibanding ANTM. Di sisi lain, MAE saham ANTM sedikit lebih tinggi dibanding sebelumnya, menunjukkan adanya fluktuasi yang lebih tajam yang tidak seluruhnya ditangkap oleh model. Hal ini bisa disebabkan oleh:
 - Volatilitas saham: BBCA sebagai saham blue chip cenderung lebih stabil, sedangkan ANTM memiliki volatilitas yang lebih tinggi, yang terkadang justru membuat pola jangka pendeknya lebih mudah dipelajari oleh model.
 - Pola tren historis: Saham ANTM kemungkinan memiliki pola historis yang lebih konsisten dalam jendela waktu tertentu, sehingga model dapat belajar lebih efektif.
-4. Analisis Model
-Model LSTM cukup efektif digunakan untuk memodelkan data time series karena mampu mengingat informasi dari urutan sebelumnya (melalui memory cell dan mekanisme gating). Model ini dilatih menggunakan dua lapisan LSTM dengan jumlah unit masing-masing 64 dan 32, serta satu output layer untuk memprediksi harga di masa depan. Namun, hasil ini masih terbatas pada data yang telah diskalakan dan belum dikembalikan ke harga aktual (inverse scaling), sehingga interpretasi angka-angka prediksi tetap berada pada skala [0,1]. Untuk aplikasi nyata seperti pengambilan keputusan investasi, perlu dilakukan inverse scaling untuk mendapatkan nilai harga sebenarnya.
 
 # Kesimpulan
 Model LSTM berhasil digunakan untuk memprediksi harga saham BBCA dan ANTM berdasarkan data historis. Model memberikan performa yang cukup baik dengan nilai error yang rendah pada kedua saham. Namun, model lebih baik dalam mengikuti tren umum (seperti pada saham ANTM) dibanding menangkap fluktuasi tajam (seperti pada BBCA). Hal ini menunjukkan LSTM cocok untuk prediksi jangka pendek dengan pola musiman atau tren yang stabil.
